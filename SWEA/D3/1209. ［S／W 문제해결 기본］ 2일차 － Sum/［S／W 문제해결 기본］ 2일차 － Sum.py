@@ -31,7 +31,7 @@ for _ in range(1, 11):
 
             if i == j :
                 dig_l += numbers[i][j]
-            if (i + j) == 100 :
+            if (i + j) == 99 :
                 dig_r += numbers[i][j]
     
     print('#{} {}'.format(tc, my_max(max_row, max_col, dig_l, dig_r) ))
