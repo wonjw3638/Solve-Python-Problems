@@ -1,5 +1,4 @@
-# 통계학
-# 시간초과
+# 2108_통계학
 
 N = int(input())
 num_list = list()
@@ -10,6 +9,7 @@ for _ in range(N):
 # 정렬
 num_list.sort()
 
+# 산술평균
 check = False
 avg = sum(num_list)/N
 
@@ -28,8 +28,10 @@ else:
                 print(sum(num_list)//N)
                 break
 
+# 중앙값
 print(num_list[N//2])
 
+# 최빈값
 # 중복제거
 num_set = set(num_list)
 
@@ -49,4 +51,5 @@ if len(max_count) > 1:
 else:
     print(max_count[0])
 
+# 범위
 print(max(num_list) - min(num_list))
