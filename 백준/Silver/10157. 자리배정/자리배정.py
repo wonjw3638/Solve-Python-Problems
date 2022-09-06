@@ -7,66 +7,36 @@ def check():
         return [0]
 
     i = R
-    j = 0
-    direction = 0
+    j = direction = 0
     num = 1
 
     while num <= N:
         if direction == 0:
-            if (0 <= i-1 < R) and (0 <= j < C):
-                if mapList[i-1][j] != 0:
-                    direction = (direction + 1) % 4
-                    continue
-                else:
-                    mapList[i-1][j] = num
-                    num += 1
-                    i -= 1
-                    continue
-            else:
-                direction = (direction + 1) % 4
-                continue
-
+            ni = i-1
+            nj = j
         elif direction == 1:
-            if (0 <= i < R) and (0 <= j+1 < C):
-                if mapList[i][j+1] != 0:
-                    direction = (direction + 1) % 4
-                    continue
-                else:
-                    mapList[i][j+1] = num
-                    num += 1
-                    j += 1
-                    continue
-            else:
-                direction = (direction + 1) % 4
-                continue
-
+            ni = i
+            nj = j+1
         elif direction == 2:
-            if (0 <= i+1 < R) and (0 <= j < C):
-                if mapList[i+1][j] != 0:
-                    direction = (direction + 1) % 4
-                    continue
-                else:
-                    mapList[i+1][j] = num
-                    num += 1
-                    i += 1
-                    continue
-            else:
+            ni = i+1
+            nj = j
+        else :
+            ni = i
+            nj = j-1
+        
+        if (0 <= ni < R) and (0 <= nj < C):
+            if mapList[ni][nj] != 0:
                 direction = (direction + 1) % 4
                 continue
-
+            else:
+                mapList[ni][nj] = num
+                num += 1
+                i = ni
+                j = nj
+                continue
         else:
-            if (0 <= i <= R) and (0 <= j-1 <= C):
-                if mapList[i][j-1] != 0:
-                    direction = (direction + 1) % 4
-                    continue
-                else:
-                    mapList[i][j-1] = num
-                    num += 1
-                    j -= 1
-                    continue
-            else:
-                direction = (direction + 1) % 4
-                continue
+            direction = (direction + 1) % 4
+            continue
 
     return [j + 1, R - i]
 
