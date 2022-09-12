@@ -15,6 +15,9 @@ for i in numbers:
         Lis[k] = i 
         
 len_Lis = len(Lis)
+
+print(len_Lis)
+
 idx_list.reverse()
 numbers.reverse()
 
@@ -28,5 +31,4 @@ for idx in range(N):
 
 answer.reverse()
 
-print(len(answer))
 print(*answer)
