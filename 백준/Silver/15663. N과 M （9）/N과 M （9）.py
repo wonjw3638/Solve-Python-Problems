@@ -20,7 +20,7 @@ arr = list(map(int, input().split()))
 arr.sort()
 
 arrPerm = perm(arr, M)
-arrPerm = list(set(list(map(tuple, arrPerm))))
+arrPerm = list(set(map(tuple, arrPerm)))
 arrPerm.sort()
 
 for answer in arrPerm:
