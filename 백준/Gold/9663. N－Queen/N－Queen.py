@@ -15,10 +15,13 @@ def queen(i, chess):
         answer += 1
         return 
 
+    if chess[i] == [1] * N:
+        return
+
     for j in range(N):
-        # 원본 바뀌니까 딥카피, 전달
         # i, j에 queen 놓을 수 있으면 놓고 밑에 줄들에 queen 놓을 수 없는 자리 표시 후 다음줄 탐색
         if chess[i][j] == 0:
+            # 원본 바뀌니까 딥카피, 전달
             chessIQueen = [chess[i][:] for i in range(N)]
             # 같은 행 - 확인 필요x
             # 같은 열
