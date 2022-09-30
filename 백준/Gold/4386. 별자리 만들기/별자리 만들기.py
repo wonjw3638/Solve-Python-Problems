@@ -19,7 +19,7 @@ def union(x, y):
 
 
 N = int(input())
-tree = [ i for i in range(N+1) ] 
+tree = [ i for i in range(N) ] 
 arr = [tuple(map(float, input().split())) for _ in range(N)]
 wArr = list()
 
