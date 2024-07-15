@@ -1,20 +1,20 @@
 N, K = map(int, input().split())
 
-countries = [0] * (N+1)
-countries[0] = [0,0]
+countries = [[-1, -1, -1] for i in range(N+1) ]
 
 for _ in range(N):
     i, g, s, b = map(int, input().split())
     if i == K:
-        score = 100*g + 10*s + b
-    countries[i] = [100*g + 10*s + b, i]
+        target_score = [g, s, b]
+    countries[i] = [g, s, b]
 
-countries.sort(key=lambda x: x[0], reverse=True)
+cnt = 1
 
-for idx, country in enumerate(countries):
-    if country[0] == score:
-        print(idx+1)
-        break
-    if country[1] == K:
-        print(idx+1)
-        break
+for score in countries:
+    if score[0] > target_score[0]: cnt += 1
+    elif score[0] == target_score[0]:
+        if score[1] > target_score[1]: cnt += 1
+        elif score[1] == target_score[1]:
+            if score[2] > target_score[2]: cnt +=1
+
+print(cnt)
